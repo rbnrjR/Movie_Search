@@ -1,6 +1,8 @@
 body {
   background-color: #555;
   background: url('../img/background.jpg');
+  background-attachment: fixed;
+  background-repeat: round;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -14,10 +16,15 @@ body {
    font-style: italic;
  }
 
+ h5 {
+   color: #555;
+   font-style: italic;
+ }
+
  .contentBody {
    background-color: #999;
-   margin-left: 525px;
-   margin-right: 525px;
+   margin-left: 490px;
+   margin-right: 490px;
  }
 
  button {

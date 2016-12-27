@@ -6,25 +6,30 @@ $(document).ready(function(){
     $.ajax({
       type: 'get',
       url: 'http://www.omdbapi.com',
-      data: { t: title},
+      data: { s: title},
       dataType: 'json',
       success: function(response){
         if (response.message!=null) {
           alert(response.message);
         }
         else {
-          result.append('<p><img src="'+response.Poster+'"> </p>');
-          result.append('<p>Title: '+ response.Title +'</p>');
-          result.append('<p>Year: '+ response.Year+'</p>');
-          result.append('<p>imdbID: '+response.imdbID+'</p>');
-          result.append('<p>Type: '+response.Type+'</p>');
-          result.append('<p>Rating: '+response.Rated+'</p>');
-          result.append('<p>Genre: '+response.Genre+'</p>');
+          $.each(response.Search, function(i, data){
+            result.append('<p id="poster"><a><img src="'+this.Poster+'"></a></p>');
+            //result.append('<p>Title: '+ this.Title +'</p>');
+            //result.append('<p>Year: '+ this.Year+'</p>');
+            //result.append('<p>imdbID: '+this.imdbID+'</p>');
+            //result.append('<p>Type: '+this.Type+'</p>');
+            //result.append('<p>Rating: '+this.Rated+'</p>');
+            //result.append('<p>Genre: '+this.Genre+'</p>');
+          });
         }
       },
       error: function(error){
         alert(error);
       }
     });
+  });
+  $('#poster').click(function(){
+
   });
 });
